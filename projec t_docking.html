@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Card Classification</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/business-casual.min.css" rel="stylesheet">
+
+    <script src="js/plyr.js"></script>
+
+    <link rel="stylesheet" href="css/plyr.css">
+
+</head>
+
+<body>
+
+    <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <!-- <div class="divider-custom-icon text-center text-white"><i class="fas fa-star"></i></div> -->
+        <div class="divider-custom-line"></div>
+    </div>
+
+    <!-- Navigation-->
+    <!-- <nav class="navbar navbar-expand-lg text-uppercase" id="mainNav"> -->
+    <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="index.html">HOME</a>
+            <button
+                class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-secondary text-white rounded"
+                type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="index.html">Portfolio</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="about.html">About</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row">
+    </div>
+    <h1 class="site-heading text-center text-white d-none d-lg-block">
+        <span class="site-heading-upper mb-3">Card Classification</span>
+        <span class="site-heading-upper text-primary mb-3">Machine Learning in Object Recognition</span>
+    </h1>
+
+
+    <section class="page-section">
+        <div class="container">
+            <div class="product-item">
+                <!-- <div class="product-item-title d-flex"> 单侧-->
+                <div class="product-item-title">
+                    <div class="bg-faded p-5  ml-auto rounded">
+                        <h2 class="section-heading mb-0">
+                            <span class="section-heading-upper">Card Classification</span>
+                            <span class="section-heading-lower">Overview</span>
+                        </h2>
+                        <p class="mb-3">The goal of our project is to classify cards for a game of Blackjack in real
+                            time. Given an
+                            image of a card, can the computer correctly identify it? (Ace, 2-10, Jack, Queen, King).</p>
+
+                        <p class="mb-3">This task explores the idea of object recognition, a tool that is being
+                            used more and more
+                            in fields, such as self-driving cars and pick/place and sorting robots. Object recognition
+                            can provide more information for computers to make decisions on by being able to tell apart
+                            a red balloon to a stop sign, or a bottle of gatorade from dish soap.</p>
+
+                        <p class="mb-3">The challenge for a computer to classify these cards comes in trying to
+                            recognize these
+                            features of the cards, and being able to interpret these features correctly. Each of the
+                            cards are unique enough that it can be a challenge for a computer to try and classify them
+                            all.</p>
+                        <p class="mb-3"><strong>In the project, we used K-Nearest Neighbor (KNN, k = 5), Support Vector
+                                Machine (SVM, linear kernel), and Neural Net (NN, 15 Layers) algorithms from
+                                Scikit-learn and Convolutional Neural Net (CNN) algorithms from the tflearn
+                                package to achieve the goal. 10-fold cross validation was used to verify the accuracy of
+                                the models we
+                                generated.</strong></p>
+                        <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                            src="img/project/project_card/overview.png" alt="">
+                        <p class="mb-3 text-center"><strong>Fig.1 Can the computer correctly identify the card in real
+                                time?</strong></p>
+
+                        <h2 class="section-heading mb-0">
+                            <span class="section-heading-upper">Card Classification</span>
+                            <span class="section-heading-lower">Dataset and Approach</span>
+                        </h2>
+                        <p class="mb-3"><strong>Dataset:</strong> We obtained the images by taking pictures of each card
+                            with an outer webcam fixed at a constant height and labeled them with different file name.
+                        </p>
+                        <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                            src="img/project/project_card/camera2.png" alt="">
+
+                        <p class="mb-3 text-center"><strong>Fig.2 Camera was mounted on a tripod to get pictures of
+                                cards.</strong>
+                        </p>
+
+                        <p class="mb-3">The original dataset contained 1040 images of one decks of 52 cards
+                            (Ace = 1, 2 ~ 10, Jack = 11, Queen = 12, and King = 13). Each card has 20 pictures with the
+                            same background in different orientation.</p>
+                        <p class="mb-3">To explore the feature set and increase the accuracy when classifying the
+                            cards, we applied <strong>data augmentation</strong> (translations, rotations, scaling,
+                            zooming, stretching and compressing) to each image in the original dataset, thus expanded
+                            the
+                            <strong>dataset</strong> to <strong>10400 images</strong>(10 augments per image).</p>
+                        <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                            src="img/project/project_card/dataset3.png" alt="">
+
+                        <p class="mb-3 text-center"><strong>Fig.3 After data augmentation, the dataset has been expanded
+                                to 10400 images.</strong>
+                        </p>
+
+                        <p class="mb-3"><strong>Approach:</strong>
+                            The learners in the project are <strong>5-Nearest Neighbor</strong>,
+                            <strong>Support Vector Machine</strong>, <strong>15-Layer Neural
+                                Net</strong> algorithm from Scikit-Learn and <strong>Convolutional Neural Net</strong>
+                            algorithm(CNN)
+                            from tflearn
+                            packages. The feature used for CNN is convolutional features, while features for other
+                            algorithms is Dense SIFT (DSIFT), a computer vision tool used to detect objects in an image.
+
+                            <strong>10-fold cross validation</strong> is used to verify the accuracy of the model.</p>
+
+                        <h2 class="section-heading mb-0">
+                            <span class="section-heading-upper">Card Classification</span>
+                            <span class="section-heading-lower">Results</span>
+                        </h2>
+
+                        <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                            src="img/project/project_card/card_done.jpg" alt="">
+                        <p class="mb-3 text-center"><strong>Fig.4 Computer recognized different cards in real
+                                time.</strong></p>
+
+                        <p class="mb-3">With the augmented data set, the accuracy of SVM and CNN algorithms increased
+                            significantly. The best model we obtained has an <strong>accuracy</strong> of
+                            <strong>98.31%</strong> with the CNN algorithm
+                            which uses 2 layers with 250 neurons.</p>
+
+                        <video width="900" autoplay="autoplay" contrls="controls">
+                            <source src="img/project/project_card/mltest.mp4" type="video/mp4">
+                            <!-- </source> plyr.css与plyr.js必须放入css文件与js文件夹中-->
+                        </video>
+                        <script>
+                            plyr.setup();
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer text-faded text-center py-5">
+        <div class="container">
+            <p class="m-0 small">Copyright &copy; Your Website 2020</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

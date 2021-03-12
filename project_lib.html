@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Lithium Ion Battery Modeling</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/business-casual.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <!-- <div class="divider-custom-icon text-center text-white"><i class="fas fa-star"></i></div> -->
+        <div class="divider-custom-line"></div>
+    </div>
+
+    <!-- Navigation-->
+    <!-- <nav class="navbar navbar-expand-lg text-uppercase" id="mainNav"> -->
+    <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="index.html">HOME</a>
+            <button
+                class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-secondary text-white rounded"
+                type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="index.html">Portfolio</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="about.html">About</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row">
+    </div>
+    <h1 class="site-heading text-center text-white d-none d-lg-block">
+        <span class="site-heading-upper mb-3">Lithum Ion Battery Optimization</span>
+        <span class="site-heading-upper text-primary mb-3">Maximize LIB Power Density</span>
+    </h1>
+
+
+    <section class="page-section">
+        <div class="container">
+            <div class="product-item">
+                <!-- <div class="product-item-title d-flex"> 单侧-->
+                <div class="product-item-title">
+                    <div class="bg-faded p-5  ml-auto rounded">
+                        <h2 class="section-heading mb-0">
+                            <span class="section-heading-upper">Lithium Ion Battery Optimization</span>
+                            <span class="section-heading-lower">Overview</span>
+                        </h2>
+                        <p class="mb-3">We are surrounded by all types of materials. However, these materials, rather
+                            than being pure homogeneous substances, most of them are heterogeneous materials possessing
+                            phases of different materials or the same materials but different phases of states.
+                            Heterogeneous materials are non-uniform and can be discerned. Lithium-ion battery is a
+                            perfect example for heterogeneous material. The overall properties of the material are not
+                            just controlled by its chemical composition, but by numerous details of its hierarchical
+                            internal structures spanning from the nano-scale to the macro-scale. Insufficiency of
+                            chemical composition for evaluation of physical properties of interests is due to existence
+                            of randomness in all materials at some scale-level. Hence multi-scale design of optimized
+                            material is the concern of many recent researches.</p>
+                        <p class="mb-3"><strong>In the study, we used Finite Element Analysis to find power density
+                                of
+                                designed LIB, analyzed
+                                the
+                                data and find the heterogeneous grain structure of LIB and finally used Matlab to
+                                recreate
+                                the grain structure and plot the correlation function.</strong></p>
+                        <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                            src="img/products-01.jpg" alt="">
+                        <p class="mb-3 text-center"><strong>Fig.1 Overall strategy for developing the computational
+                                tools based on existing CAEBAT</strong></p>
+
+                        <h2 class="section-heading mb-0">
+                            <span class="section-heading-upper">Lithium Ion Battery Optimization</span>
+                            <span class="section-heading-lower">Grain Reconstruction in 2D</span>
+                        </h2>
+                        <p class="mb-0"><strong>Characterization:</strong> A random two-phase microstructure medium can
+                            be regarded as a
+                            probability space
+                            that can be
+                            characterized with statistical approaches. Many descriptors have been proposed for
+                            quantification of heterogeneous microstructure. One of the basic tool for characterization
+                            of a heterogeneous micro-structure is the n-point correlation functions. And in the case of
+                            our study, we are using the two-point-correlation function, which is also the most widely
+                            used on among all the n-point-correlation functions. The two-point correlation function is
+                            function about the probability of two existing interested points within particular distance.
+                        </p>
+                        <p class="mb-3">In order to make further analysis more approachable, it is important to transfer
+                            the image into binary.We crop the image to get rid of the outer boundaries which are useless
+                            for the study and characterization. In this example, we chose the image with more regular
+                            boundaries which could be more easily reconstructed. When the image is ready for
+                            characterization, the 2 point correlation functions could be applied.</p>
+
+                        <p class="mb-3"><strong>Reconstruction:</strong> The reconstruction of the material is based on
+                            the image properties and two-point correlation function. For the basic image property, the
+                            ratio of each phase, the number of ‘grains’ and the size of the ‘grain’ need to be find out.
+                            The reconstruction process combine a random core selection process and a random grain filled
+                            process. In the process of core selection, the core are randomly distributed in the whole
+                            image with two criterion: the critical criterion and the grain potential energy criterion.
+                            The critical criterion is that there exists an minimum distance between two different cores,
+                            while the grain potential energy criterion is that based on the grain potential function,
+                            the new grain core are more likely to developed near the existing grain. The process of
+                            grain grow simulates the real process of a growing grain by using the random function. With
+                            typically probability of grows, for each generation, each pixel’s generation follows the
+                            same probability.</p>
+                        <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                            src="img/products-01.jpg" alt="">
+                    </div>
+                </div>
+                <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="img/products-01.jpg"
+                    alt="">
+                <div class="product-item-description d-flex mr-auto">
+                    <div class="bg-faded p-5 rounded">
+                        <p class="mb-0">We take pride in our work, and it shows. Every time you order a beverage from
+                            us, we guarantee that it will be an experience worth having. Whether it's our world famous
+                            Venezuelan Cappuccino, a refreshing iced herbal tea, or something as simple as a cup of
+                            speciality sourced black coffee, you will be coming back for more.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section">
+        <div class="container">
+            <div class="product-item">
+                <div class="product-item-title d-flex">
+                    <div class="bg-faded p-5 d-flex mr-auto rounded">
+                        <h2 class="section-heading mb-0">
+                            <span class="section-heading-upper">Delicious Treats, Good Eats</span>
+                            <span class="section-heading-lower">Bakery &amp; Kitchen</span>
+                        </h2>
+                    </div>
+                </div>
+                <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="img/products-02.jpg"
+                    alt="">
+                <div class="product-item-description d-flex ml-auto">
+                    <div class="bg-faded p-5 rounded">
+                        <p class="mb-0">Our seasonal menu features delicious snacks, baked goods, and even full meals
+                            perfect for breakfast or lunchtime. We source our ingredients from local, oragnic farms
+                            whenever possible, alongside premium vendors for specialty goods.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section">
+        <div class="container">
+            <div class="product-item">
+                <div class="product-item-title d-flex">
+                    <div class="bg-faded p-5 d-flex ml-auto rounded">
+                        <h2 class="section-heading mb-0">
+                            <span class="section-heading-upper">From Around the World</span>
+                            <span class="section-heading-lower">Bulk Speciality Blends</span>
+                        </h2>
+                    </div>
+                </div>
+                <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0" src="img/products-03.jpg"
+                    alt="">
+                <div class="product-item-description d-flex mr-auto">
+                    <div class="bg-faded p-5 rounded">
+                        <p class="mb-0">Travelling the world for the very best quality coffee is something take pride
+                            in. When you visit us, you'll always find new blends from around the world, mainly from
+                            regions in Central and South America. We sell our blends in smaller to large bulk
+                            quantities. Please visit us in person for more details.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer text-faded text-center py-5">
+        <div class="container">
+            <p class="m-0 small">Copyright &copy; Your Website 2020</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

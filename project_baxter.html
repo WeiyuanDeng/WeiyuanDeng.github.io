@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Baxter Shuffle</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/business-casual.min.css" rel="stylesheet">
+
+    <script src="js/plyr.js"></script>
+
+    <link rel="stylesheet" href="css/plyr.css">
+
+</head>
+
+<body>
+
+    <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <!-- <div class="divider-custom-icon text-center text-white"><i class="fas fa-star"></i></div> -->
+        <div class="divider-custom-line"></div>
+    </div>
+
+    <!-- Navigation-->
+    <!-- <nav class="navbar navbar-expand-lg text-uppercase" id="mainNav"> -->
+    <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="index.html">HOME</a>
+            <button
+                class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-secondary text-white rounded"
+                type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="index.html">Portfolio</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="about.html">About</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row">
+    </div>
+    <h1 class="site-heading text-center text-white d-none d-lg-block">
+        <span class="site-heading-upper mb-3">Baxter Robot Shuffle</span>
+        <span class="site-heading-upper text-primary mb-3">Inverse Kinematics and Motion Planning</span>
+    </h1>
+
+
+    <section class="page-section">
+        <div class="container">
+            <div class="product-item">
+                <!-- <div class="product-item-title d-flex"> 单侧-->
+                <div class="product-item-title">
+                    <div class="bg-faded p-5  ml-auto rounded">
+                        <h2 class="section-heading mb-0">
+                            <span class="section-heading-upper">Baxter Shuffle</span>
+                            <span class="section-heading-lower">Overview</span>
+                        </h2>
+                        <p class="mb-3">The project used Baxter to perform a simplified version of the classic shell
+                            game. The original idea was that an object would be placed under one cup and Baxter would
+                            shuffle the three cups for some period of time. One of the audience could then guess which
+                            cup contains the object by placing their hand in front of the cup, and in response Baxter
+                            would grasp the cup and lift it to (maybe) reveal the object then place the cup back down on
+                            the table. We simplified that version of the shell game in two ways:
+                        </p>
+
+                        <p class="mb-3"> Instead of using cups and an object hidden inside one of the cups, this version
+                            uses three cubes, one of which has a marker on the underside;</p>
+
+                        <p class="mb-3"> instead of shuffling the blocks randomly, Baxter moves each block to a position
+                            chosen randomly from a set of specified positions. The Shuffle Algorithm and Further
+                            Improvements sections below explain this simplification in greater detail..</p>
+
+                        <p class="mb-3"><strong>In the project, we used Baxter Robot to perform a simplified version of
+                                the classic shell game with inverse kinematics and motion planning for the limb
+                                motion.</strong></p>
+
+                        <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                            src="img/project/project_baxter/overview.png" alt="">
+                        <p class="mb-3 text-center"><strong>Fig.1 Classic shell game (left) and a Baxter Robot
+                                (right)</strong></p>
+
+                        <h2 class="section-heading mb-0">
+                            <span class="section-heading-upper">Baxter Shuffle</span>
+                            <span class="section-heading-lower"> Process</span>
+                        </h2>
+                        <p class="mb-3"><strong>Preparation:</strong> Baxter Robot, ROS Indigo on Ubuntu 14.04, Three
+                            colored cubes(one with
+                            marker) </p>
+                        <p class="mb-3"><strong>Approach:</strong></p>
+                        <p class="mb-3">1. Move the gripper to home position</p>
+                        <p class="mb-3">2. Sweep the table to detect the cubes</p>
+                        <p class="mb-3">3. Store the position of the three cubes</p>
+                        <p class="mb-3">4. Move the gripper to the first cube</p>
+                        <p class="mb-3">5. Pick up the cube</p>
+                        <p class="mb-3">6. Move the gripper to a random position</p>
+                        <p class="mb-3">7. Place the cube on the table</p>
+                        <p class="mb-3">8. Store the new location of the cube</p>
+                        <p class="mb-3">9. Repeat step 4~8 to the rest two cubes</p>
+                        <p class="mb-3">10. Move the gripper to a random cube</p>
+                        <p class="mb-3">11. Pick up the cube</p>
+                        <p class="mb-3">12. Move the gripper back to one of the original position</p>
+                        <p class="mb-3">13. Place the cube on the table</p>
+                        <p class="mb-3">14. Repeat step 10~13 to the rest two cubes</p>
+                        <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                            src="img/project/project_card/dataset3.png" alt="">
+
+                        <p class="mb-3 text-center"><strong>Fig.3 After data augmentation, the dataset has been expanded
+                                to 10400 images.</strong>
+                        </p>
+
+                        <p class="mb-3"><strong>Approach:</strong>
+                            The learners in the project are <strong>5-Nearest Neighbor</strong>,
+                            <strong>Support Vector Machine</strong>, <strong>15-Layer Neural
+                                Net</strong> algorithm from Scikit-Learn and <strong>Convolutional Neural Net</strong>
+                            algorithm(CNN)
+                            from tflearn
+                            packages. The feature used for CNN is convolutional features, while features for other
+                            algorithms is Dense SIFT (DSIFT), a computer vision tool used to detect objects in an image.
+
+                            <strong>10-fold cross validation</strong> is used to verify the accuracy of the model.</p>
+
+                        <h2 class="section-heading mb-0">
+                            <span class="section-heading-upper">Baxter Shuffle</span>
+                            <span class="section-heading-lower">Process</span>
+                        </h2>
+
+                        <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                            src="img/project/project_card/card_done.jpg" alt="">
+                        <p class="mb-3 text-center"><strong>Fig.4 Computer recognized different cards in real
+                                time.</strong></p>
+
+                        <p class="mb-3">With the augmented data set, the accuracy of SVM and CNN algorithms increased
+                            significantly. The best model we obtained has an <strong>accuracy</strong> of
+                            <strong>98.31%</strong> with the CNN algorithm
+                            which uses 2 layers with 250 neurons.</p>
+
+                        <video width="900" autoplay="autoplay" contrls="controls">
+                            <source src="img/project/project_card/mltest.mp4" type="video/mp4">
+                            <!-- </source> plyr.css与plyr.js必须放入css文件与js文件夹中-->
+                        </video>
+                        <script>
+                            plyr.setup();
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer text-faded text-center py-5">
+        <div class="container">
+            <p class="m-0 small">Copyright &copy; Your Website 2020</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
