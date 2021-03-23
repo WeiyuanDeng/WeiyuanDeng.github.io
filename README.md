@@ -1,21 +1,21 @@
-#### Intro
+### Intro
 
 The repository presents a personal page of my portfolio and information.
-Click [here](https://github.com/StartBootstrap/startbootstrap-business-casual) to view.
+Click [here](https://weiyuandeng.github.io/) to view.
 
-#### Home
+### [Home](https://weiyuandeng.github.io/)
 
-Home page of the portfolio.
+Homepage of the portfolio.
 
-### Portfolio
+### [Portfolio](https://weiyuandeng.github.io/index.html#portfolio)
 
 Projects I did during study and work. 
 
-### About
+### [About](https://weiyuandeng.github.io/about.html)
 
-Acedemic skills and research interest.
+Academic skills and research interest.
 
-### Contact
+### [Contact](https://weiyuandeng.github.io/contact.html)
 
 My contact information.
 
