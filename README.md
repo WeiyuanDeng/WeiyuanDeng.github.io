@@ -7,21 +7,22 @@ Click [here](https://github.com/StartBootstrap/startbootstrap-business-casual) t
 
 Home page of the portfolio.
 
-#### Portfolio
+### Portfolio
 
 Projects I did during study and work. 
 
-#### About
+### About
 
 Acedemic skills and research interest.
 
-#### contact
+### Contact
 
 My contact information.
 
-#### Copyright and License
+### Copyright and License
 
-The original template was downloaded from [StartBootstrap](https://startbootstrap.com/themes/business-casual/). 
+The original template was downloaded from [StartBootstrap](https://startbootstrap.com/themes/business-casual/).
+
 I reconstructed it according to personal aesthetic.
 
 Copyright 2013-2020 Start Bootstrap LLC. Code released under the [MIT](https://github.com/StartBootstrap/startbootstrap-business-casual/blob/gh-pages/LICENSE) license.
