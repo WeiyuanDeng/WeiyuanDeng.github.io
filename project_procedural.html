@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Procedural Generation for Underwater Site</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/business-casual.min.css" rel="stylesheet">
+
+    <script src="js/plyr.js"></script>
+
+    <link rel="stylesheet" href="css/plyr.css">
+
+</head>
+
+<body>
+
+    <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <!-- <div class="divider-custom-icon text-center text-white"><i class="fas fa-star"></i></div> -->
+        <div class="divider-custom-line"></div>
+    </div>
+
+    <!-- Navigation-->
+    <!-- <nav class="navbar navbar-expand-lg text-uppercase" id="mainNav"> -->
+    <nav class="navbar navbar-expand-lg text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="index.html">HOME</a>
+            <button
+                class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-secondary text-white rounded"
+                type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="index.html">Portfolio</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="about.html">About</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row">
+    </div>
+    <h1 class="site-heading text-center text-white d-none d-lg-block">
+        <span class="site-heading-upper mb-3">Procedural Generation</span>
+        <span class="site-heading-upper text-primary mb-3">Reconstruction of Underwater Site</span>
+    </h1>
+
+
+    <section class="page-section">
+        <div class="container">
+            <div class="product-item">
+                <!-- <div class="product-item-title d-flex"> 单侧-->
+                <div class="product-item-title">
+                    <div class="bg-faded p-5  ml-auto rounded">
+                        <h2 class="section-heading mb-0">
+                            <span class="section-heading-upper">Procedural Generation</span>
+                            <span class="section-heading-lower">Overview</span>
+                        </h2>
+                        <p class="mb-3">This project aims to procedurally generate the a flock of fish and posidonia oceanica, the
+                            underwater vegetation, at the ancient underwater archaeological site of Amathus in Cyprus.
+                            The project is implemented in Unity and is mostly used for virtual reality simulations for
+                            people who are not able to dive to the scene.
+                            </p>
+
+                            <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                            src="img/project/project_procedural/conclu.png" alt="">
+                            <p class="mb-3 text-center"><strong>Fig.1 Ancient harbour of Amathus in Cyprus (left) and procedurally generated underwater scene (right)</strong></p>
+
+                            <h2 class="section-heading mb-0">
+                                <span class="section-heading-upper">Procedural Generation</span>
+                                <span class="section-heading-lower">Design</span>
+                            </h2>
+
+                            <p class="mb-3">There are mainly three parts in this project: sea floor terrain procedural generation; underwater vegetation generation and object placement; underwater graphics effects. For the
+                                first part, the sea floor terrain was generated via two different ways: CSharp script using
+                                Perlin noise, and using a height map with real world data. For the underwater vegetation generation and object placement, specifically, posidonia oceanica, a single grass blades
+                                was created using Blender, then the Lindermayer system algorithm was applied to generate a full plant. Then rocks were placed on the terrain with 2D Perlin Noise Sampling.
+                                Then the posidonia oceanica were generated within a certain radius around the rocks. For
+                                underwater graphics, fog effect and caustics effect was explored.</p>
+
+                            <h2 class="section-heading mb-0">
+                                <span class="section-heading-upper">Procedural Generation</span>
+                                <span class="section-heading-lower">Implementations</span>
+                            </h2>
+                            <p class="mb-3">With an initial design framework in place, implementation began. As with the background
+                                research and design, the implementation was divided into three parts: the generation of the
+                                underwater terrain, and the generation and placement of underwater objects, the image
+                                effects of the underwater environment. Then they are implemented sequentially.                           
+                            </p>
+    
+                            <p class="mb-3"><strong>1  Terrain Generation</strong>                         
+                            </p>                    
+                            <p>1.1 Heightmap Terrain</p>
+                            <p class="mb-3">A very convenient way to generate a terrain is to import a height map in raw format
+                                into unity. This method is easy but has very obvious limitations. It is unnecessarily time
+                                consuming to keep changing the imported height map when the generated terrain does
+                                not meet our expectation. We wanted to get a terrain that could be adjusted by tuning
+                                different parameters, which makes it more in line with the idea of procedural generation,
+                                so the next step was to use Perlin noise to generate and debug the terrain.</p>
+                            <!-- <p class="mb-3">As the left Figure.2 shows, the terrain generated by importing heightmap looks
+                                like a mountain. And the terrain in right Figure.2 looks like a beach rather than a sea
+                                floor.</p> -->
+    
+                            <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                                src="img/project/project_procedural/terrain.png" alt="">
+    
+                            <p class="mb-3 text-center"><strong>Fig.2 Heightmaps and corresponding generated terrain</strong>
+                            </p>
+
+                            <p>1.2 Perlin Noise Terrain</p>
+                            <p class="mb-3">As the imported heightmap terrain did not meet expectations, perlin noise was chosen to
+                                generate terrain that simulated the natural environment of the seabed in order to be able
+                                to adjust the height undulations of the terrain through parameters. A single perlin noise
+                                produces a highly repetitive terrain with little detail, and multiple perlin noises can be
+                                scaled and superimposed to increase the variability and detail of the terrain.</p>
+                            <!-- <p class="mb-3">To implement this perlin noise generated terrain, we first determine the width and
+                                height of the terrain we need to generate, create a width x height array to store the perlin
+                                noise value for each pixel, and then iterate over each pixel using unity’s built-in If we use
+                                the lerp() function to Linearly interpolates the calculated perlin noise value between Color
+                                black and Color white, we can display the resulting noise map on a single plane. But
+                                this is only a layer of noise, which could, for example, be a submarine terrain formed by
+                                underwater mountains. To add more detail, such as raised rocks and sand, we can add
+                                multiple layers of frequency and noise, i.e. octaves.</p>    -->
+
+                            <!-- <p class="mb-3">As the Figure.3 shows, the terrain looks better and it could be adjusted by tuning
+                                parameters like number of octaves, persistance, lacunarity and offset. However, in Figure.4.8, we can easily found that the terrain was not seamless. This could happen as each
+                                noise map has a different maximum and minimum noise value, and they are interpolating
+                                between a specific range. Therefore the actual maximum and minimum height value varied
+                                by different map.
+                                </p> -->
+    
+                            <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                                src="img/project/project_procedural/perlin.png" alt="">
+    
+                            <p class="mb-3 text-center"><strong>Fig.3 Perlin Noise Terrain</strong>
+                            </p>
+
+                            <p class="mb-3"><strong>2  Object Generation and Placement</strong>    
+                            </p>                    
+                            <p class="mb-3">The procedural generation and placement of underwater objects consisted mainly of the
+                                placement of rocks, the generation of vegetation, and the generation of fish. The simulation
+                                of vegetation, also known as Neptune grass, is a main part of this project.</p>
+
+                            <p>2.1 Seagrass Generation</p>
+                            <p class="mb-3">The generation of Neptune grass starts with a single leaf of the plant. In this section,
+                                the LinderMayer System algorithm is used to generate the entire plant from a single leaf
+                                following certain rules. Neptune grass is significantly different in appearance from the traditional common underwater vegetation laminaria plant, so the
+                                rules of the L-system for generating the plant and the model of the individual leaves have
+                                to be adapted to the biological information of Neptune grass in order to approximate the
+                                appearance of the real plant.</p>
+
+                            <p class="mb-3">The choice of Neptune grass blades was ultimately modelled
+                                using blender,  with all the material node information baked in blender into
+                                the texture map.</p>
+                            
+                            <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                                src="img/project/project_procedural/shader.png" alt="">
+    
+                            <p class="mb-3 text-center"><strong>Fig.3 Shader graph of seagrass leaf in blender</strong>
+                            </p>
+
+                            <p class="mb-3">The whole Neptune grass is generated using the lindermayer system algorithm.
+                                The first step was to determine a RULE that would make the generated plant most closely
+                                resemble the appearance of Neptune grass. Neptune grass
+                                produces about three plants with four to eight blades per root. The rules used in this project is
+                                shown in the table.
+                                </p>
+    
+                            <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                                src="img/project/project_procedural/rule.png" alt="">
+    
+                            <p class="mb-3 text-center"><strong>Tab.1 Number of blades and corresponding rules</strong>
+                            </p>
+                            
+                            <p class="mb-3">The resulting plant will be different each time and will be random, as
+                            if it were a different plant of the same species. Figure.4 shows a comparison
+                            between a generated seagrass and an actual plant.
+
+                            <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                            src="img/project/project_procedural/seagrass.png" alt="">
+
+                        <p class="mb-3 text-center"><strong>Fig.4 Graph of an actual plant and a generated plant</strong>
+                        </p>
+
+
+                        <p>2.2 Object Placement</p>
+                        <p class="mb-3">All objects are placed procedurally, each time the game is started, stones are generated sequentially using the noise function, and then a certain number of individual Neptune plants
+                            are generated with a certain probability within a certain area, centred on each stone, thus
+                            creating random clusters around the stones.
+                            The stones are generated based on 2D perlin noise sampling.</p>
+
+                        <p class="mb-3">After the position of the stone has been determined (Figure.5 left), the underwater plants
+                            are generated within a certain radius around the stone. The initial method used was Poisson disc sampling, but the circle centred on the stone would be perfectly filled with water
+                            plants, giving a more regular circle, which would be unnatural in comparison to reality, so
+                            a random generation was used. The probability of water plants being generated around
+                            each stone is 75 percent, which can also be adjusted as a parameter.</p>
+
+
+                            <p>2.3 Fish Generation</p>
+                            <p class="mb-3">As for the fish simulation, the initial design was for fish that met the three characteristics
+                                in the depths of the ocean, but again due to the shallow water in which the Neptune grass
+                                is located, the final design of the fish was chosen to be small fish randomly generated at
+                                different heights and locations, in a set flowfield based on noise movement.</p>
+                        
+                        <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                            src="img/project/project_procedural/object.png" alt="">
+
+                        <p class="mb-3 text-center"><strong>Fig.5 Object placement (left and middle )and fish flock generation (right)</strong>
+                        </p>
+
+                        <p class="mb-3"><strong>3  Underwater Image Effects</strong>                         
+                        </p>                    
+
+                        <p class="mb-3">Underwater simulation is challenging due to the irregularity of water movement and the
+                            complexity of the interaction between the sea surface and light and shadows such as sunlight. In this part, the fog effect based on depth was implemented and a caustics effect was
+                            faked by projecting two caustics textures onto the terrain. The real caustics effect that
+                            causes by light travelling through the water surface is still under development.</p>
+                        <p>3.1 Fog Effect</p>
+
+                        <p class="mb-3">It is necessary to simulate the effect of low visibility
+                            in an underwater environment. This is very similar to the effect we normally see with fog,
+                            so we simulate the underwater environment by simulating fog. The
+                            colour of the fog, the range of visibility in front of us and the position of our eyes which
+                            is the position of our camera need to be determined. In order to achieve the effect of the distance being covered
+                            by fog, a depth-based fog is taken here, i.e. the fog colour is mixed into the scene colour
+                            to varying degrees depending on the depth.</p>
+
+                        <p>3.2 Caustics</p>
+
+                        <p class="mb-3">Caustics is a common physical phenomenon that is produced by the passage of light through
+                            a medium. It occurs in many forms and can often be seen at the bottom of the sea or
+                            swimming pool. As there is a lot of light to simulate, recreating a realistic scatter is very
+                            time consuming and expensive, and can often be faked by projecting a 2D texture onto the
+                            terrain of the sea floor and shifting the offset of the textures to animate their movement.
+                            In this project, the scatter effect is generated by creating a single caustics texture through
+                            the terrain shader.</p>
+
+
+                        <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                            src="img/project/project_procedural/under.png" alt="">
+
+                        <p class="mb-3 text-center"><strong>Fig.6 Underwater image effects</strong>
+                        </p>
+
+
+                        <h2 class="section-heading mb-0">
+                            <span class="section-heading-upper">Procedural Generation</span>
+                            <span class="section-heading-lower">Conclusion</span>
+                        </h2>
+
+                        <p class="mb-3">In the project, an underwater scene is presented. The terrain is generated procedurally to
+                            model a realistic sea floor and it consists of 9 planes to form the full underwater scene.
+                            The sea floor terrain was generated via three different ways and compared: CSharp script
+                            using Perlin noise, Shader using tessellation and noise, or using a height map with real
+                            world data. Then it was expanded to a terrain of infinity no matter where the user goes, so
+                            the user will not feel like exploring in a box. For underwater graphics effect, lighting and
+                            fog effects were considered. As the site is not deeply immersed, only caustics effect was
+                            presented. The distance-based fog effects was implemented according to camera depth. To
+                            model a deformation effect usually happens when seeing things through water, a directional
+                            noise image effect was used to distort the camera image. For the underwater vegetation
+                            generation, to model the posidonia oceanica, which is the special underwater vegetation
+                            around Amathous, a single grass blades is created using Blender, then the Lindermayer
+                            system algorithm is applied to generate a full plant. Vegetation was spawned around rocks
+                            in a radius with a specific chance to form a cluster and the distribution of rocks is according to 2D Perlin Noise sampling. The animation of seagrass was first implemented using
+                            Shader Graph in Universal Render Pipeline (URP), but as Shader Graph is not compatible
+                            with the underwater scene using default render pipeline, vortex animation of seagrass was
+                            re-implemented with Shader using default render pipeline.</p>
+
+                        <img class="product-item-img mx-auto d-flex rounded img-fluid mb-3 mb-lg-0"
+                        src="img/project/project_procedural/conclu.png" alt="">
+                        <p class="mb-3 text-center"><strong>Fig.4 Ancient harbour of Amathus in Cyprus (left) and procedurally generated underwater scene (right)</strong></p>
+
+
+                        <p class="mb-3">The generated underwater scenes look very close to the real shallow water environment and
+                            the generated seagrass clusters look very close to the real posidonia oceanica underwater
+                            clusters, as expected. However, there is still a lot of room for improvement throughout the
+                            project and there are still some new ideas that need to be implemented to make the scenes
+                            more logical and realistic.
+                            </p>
+
+                        <!-- <video width="900" autoplay="autoplay" contrls="controls">
+                            <source src="img/project/project_card/mltest.mp4" type="video/mp4"> -->
+                        <!-- </source> plyr.css与plyr.js必须放入css文件与js文件夹中-->
+                        <!-- </video>
+                            <script>
+                                plyr.setup();
+                            </script> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer-->
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <!-- Footer Location-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Address</h4>
+                    <p class="lead mb-0">
+                        36-40 Copperfield Road
+                        <br />
+                        London, UK
+                    </p>
+                </div>
+                <!-- Footer Social Icons-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Contact</h4>
+                    <p class="lead mb-0">
+                        +44 770-858-5594
+                    </p>
+                    <p class=" mb-0">
+                        weiyuan.deng.21@ucl.ac.uk
+                    </p>
+                    <!-- <a class="btn btn-outline-light btn-social mx-1" href="#!"><i
+                            class="fab fa-fw fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
+                    <a class="btn btn-outline-light btn-social mx-1" href="#!"><i
+                            class="fab fa-fw fa-linkedin-in"></i></a>
+                    <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a> -->
+                </div>
+                <!-- Footer About Text-->
+                <div class="col-lg-4">
+                    <h4 class="text-uppercase mb-4">About Me</h4>
+                    <p class="lead mb-0">
+                        Here is a link to my
+                        <a href="cv/CV_WeiyuanDEng.pdf">Resume</a>
+                        .
+                    </p>
+                </div>
+                <div class="container">
+                    <pre>
+                    </pre>
+                </div>
+                <div class="container">
+                    <p class="mb-3 mb-lg-0 small">Weiyuan DENG &copy; Portfolio 2023</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
